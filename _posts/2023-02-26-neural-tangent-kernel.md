@@ -131,7 +131,13 @@ $$
 ## Gaussian Processes (GP)
 This is a (very) short and handwavy introduction to GPs, but it suffices to show the relevant connections to NTK. 
 
-Let $Y \sim \mathcal{N(0, \Sigma_y)}$ be the training set and $X \sim \mathcal{N(0, \Sigma_x)}$ be the test set (we can always substract the mean to center them in 0). We setup the prior distribution $P_X$ such that $\Sigma_x^{ij} = K(X_i, X_j)$. We also have the joint distribution $P_{X, Y} = \begin{bmatrix} X \\ Y \end{bmatrix} \sim \mathcal{N}(0, \begin{bmatrix} \Sigma_{xx} & \Sigma_{xy} \\ \Sigma_{yx} & \Sigma_{yy}\end{bmatrix})$, where each covariance is setup similarly via the kernel $K$. 
+Let $Y \sim \mathcal{N(0, \Sigma_y)}$ be the training set and $X \sim \mathcal{N(0, \Sigma_x)}$ be the test set (we can always substract the mean to center them in 0). We setup the prior distribution $P_X$ such that $\Sigma_x^{ij} = K(X_i, X_j)$. We also have the joint distribution 
+
+$$
+P_{X, Y} = \begin{bmatrix} X \\ Y \end{bmatrix} \sim \mathcal{N}(0, \begin{bmatrix} \Sigma_{xx} & \Sigma_{xy} \\ \Sigma_{yx} & \Sigma_{yy}\end{bmatrix})
+$$
+
+where each covariance is setup similarly via the kernel $K$. 
 
 Then, due to the property that the Normal distribution is closed under conditioning and marginalization, we can compute the posterior $P_{X|Y}$. From the posterior we can sample multiple functions that fit our training data. 
 
@@ -166,7 +172,9 @@ where $p^{in}$ is the distribution of the input set (assume empirical distributi
 
 $$
 \langle f, g  \rangle_{K} = \mathbb{E}_{x, x' \sim p^{in}}[ f(x)^\top K(x, x') g(x')]
-$$. 
+$$
+
+. 
 
 Also, let $F^{(L)}: \mathbb{R}^P \to \mathcal{F}$ be the realization function, which maps parameters $\theta$ ot a function $f_\theta$ (basically takes in parameters and returns a function parameterized by these parameters), and $\nabla_{W_{ij}^{(l)}}F^{(L)}$ be the derivative of the realization function w.r.t. the weights. Define also $\mu : \mathcal{F} \to \R, \mu = \langle d, \cdot \rangle_{p^{in}}, d \in \mathcal{F}$. Plugging in $d = K_{i, \cdot}(x, \cdot)$ in the previous definition (since $K_{i, \cdot}(x, \cdot) \in \mathcal{F}$), we get:
 
@@ -178,8 +186,9 @@ $$
 
 Instead of doing gradient descent on the parameters $\theta$ (which we will see stay almost constant during training as the width $\to \infty$), we do functional gradient descent on the function $f_\theta$ itself, using a cost $C : \mathcal{F} \to \R$.
 
-Define the functional derivative of $C$ at a point $f_0 \in \mathcal{F}$ as $\nabla_fC|_{f_0}$, and the dual $d|_{f_0} \in \mathcal{F}$, such that $\nabla_fC|_{f_0} = \langle d|_{f_0}, \cdot \rangle_{p^{in}}$.
+Define the functional derivative of $C$ at a point $$f_0 \in \mathcal{F}$$ as $$\nabla_fC|_{f_0}$$, and the dual $$d|_{f_0} \in \mathcal{F}$$, such that $$\nabla_fC|_{f_0} = \langle d|_{f_0}, \cdot \rangle_{p^{in}}$$.
 
+***
 
 ### Random functions approximation
 Before moving onto ANNs, this is a simplification in which the realization function is linear.
