@@ -35,9 +35,9 @@ toc:
 ## Functional Gradient Descent
 For examples and plots see [here](https://simple-complexities.github.io/optimization/functional/gradient/descent/2020/03/04/functional-gradient-descent.html).
 
-Suppose we want to learn a function $$ f(x) $$ using gradient descent. One example would be to parameterize $f$ as a linear function using weights $$ w $$: $$ f(x) = w^\top x $$. 
+Suppose we want to learn a function $$ f(x) $$ using gradient descent. One example would be to parameterize $$ f $$ as a linear function using weights $$ w $$: $$ f(x) = w^\top x $$. 
 
-In order to learn $w$ we take a loss function, i.e. MSE: 
+In order to learn $$ w $$ we take a loss function, i.e. MSE: 
 
 $$
 \begin{align}
@@ -179,7 +179,7 @@ $$
 \langle f, g  \rangle_{p^{in}} = \mathbb{E}_{x \sim p^{in}}[ f(x)^\top g(x)]
 $$
 
-where $p^{in}$ is the distribution of the input set (assume empirical distribution over $$ N $$ points). Similarly, 
+where $$ p^{in} $$ is the distribution of the input set (assume empirical distribution over $$ N $$ points). Similarly, 
 
 $$
 \langle f, g  \rangle_{K} = \mathbb{E}_{x, x' \sim p^{in}}[ f(x)^\top K(x, x') g(x')]
@@ -187,7 +187,7 @@ $$
 
 . 
 
-Also, let $$ F^{(L)}: \mathbb{R}^P \to \mathcal{F} $$ be the realization function, which maps parameters $$ \theta $$ to a function $$ f_\theta $$ (basically takes in parameters and returns a function parameterized by these parameters), and $$ \nabla_{W_{ij}^{(l)}}F^{(L)} $$ be the derivative of the realization function w.r.t. the weights. Define also $$ \mu : \mathcal{F} \to \R, \mu = \langle d, \cdot \rangle_{p^{in}}, d \in \mathcal{F} $$. Plugging in $$ d = K_{i, \cdot}(x, \cdot) $$ in the previous definition (since $$ K_{i, \cdot}(x, \cdot) \in \mathcal{F} $$), we get:
+Also, let $$ F^{(L)}: \mathbb{R}^P \to \mathcal{F} $$ be the realization function, which maps parameters $$ \theta $$ to a function $$ f_\theta $$ (basically takes in parameters and returns a function parameterized by these parameters), and $$ \nabla_{W_{ij}^{(l)}}F^{(L)} $$ be the derivative of the realization function w.r.t. the weights. Define also $$ \mu : \mathcal{F} \to \mathbb{R}, \mu = \langle d, \cdot \rangle_{p^{in}}, d \in \mathcal{F} $$. Plugging in $$ d = K_{i, \cdot}(x, \cdot) $$ in the previous definition (since $$ K_{i, \cdot}(x, \cdot) \in \mathcal{F} $$), we get:
 
 $$
 \begin{align}
@@ -195,9 +195,9 @@ f_{\mu, i}(x) = \langle d, K_{i, \cdot}(x, \cdot) \rangle
 \end{align}
 $$
 
-Instead of doing gradient descent on the parameters $$ \theta $$ (which we will see stay almost constant during training as the width $$ \to \infty $$), we do functional gradient descent on the function $$ f_\theta $$ itself, using a cost $$ C : \mathcal{F} \to \R $$.
+Instead of doing gradient descent on the parameters $$ \theta $$ (which we will see stay almost constant during training as the width $$ \to \infty $$), we do functional gradient descent on the function $$ f_\theta $$ itself, using a cost $$ C : \mathcal{F} \to \mathbb{R} $$.
 
-Define the functional derivative of $C$ at a point 
+Define the functional derivative of $$ C $$ at a point 
 
 $$
 f_0 \in \mathcal{F}$$ as $$\nabla_fC|_{f_0}
@@ -213,7 +213,9 @@ such that
 
 $$
 \nabla_fC|_{f_0} = \langle d|_{f_0}, \cdot \rangle_{p^{in}}
-$$.
+$$
+
+.
 
 ***
 
