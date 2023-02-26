@@ -156,7 +156,17 @@ $$
 where $W_{ij}^{(l)} \sim \mathcal{N}(0, \frac{1}{n_l})$. 
 
 
-Define the bilinear form: $\langle f, g  \rangle_{p^{in}} = \mathbb{E}_{x \sim p^{in}}[ f(x)^\top g(x)]$, where $p^{in}$ is the distribution of the input set (assume empirical distribution over $N$ points). Similarly, $\langle f, g  \rangle_{K} = \mathbb{E}_{x, x' \sim p^{in}}[ f(x)^\top K(x, x') g(x')]$. 
+Define the bilinear form: 
+
+$$ 
+\langle f, g  \rangle_{p^{in}} = \mathbb{E}_{x \sim p^{in}}[ f(x)^\top g(x)]
+$$
+
+where $p^{in}$ is the distribution of the input set (assume empirical distribution over $N$ points). Similarly, 
+
+$$
+\langle f, g  \rangle_{K} = \mathbb{E}_{x, x' \sim p^{in}}[ f(x)^\top K(x, x') g(x')]
+$$. 
 
 Also, let $F^{(L)}: \mathbb{R}^P \to \mathcal{F}$ be the realization function, which maps parameters $\theta$ ot a function $f_\theta$ (basically takes in parameters and returns a function parameterized by these parameters), and $\nabla_{W_{ij}^{(l)}}F^{(L)}$ be the derivative of the realization function w.r.t. the weights. Define also $\mu : \mathcal{F} \to \R, \mu = \langle d, \cdot \rangle_{p^{in}}, d \in \mathcal{F}$. Plugging in $d = K_{i, \cdot}(x, \cdot)$ in the previous definition (since $K_{i, \cdot}(x, \cdot) \in \mathcal{F}$), we get:
 
