@@ -1,9 +1,9 @@
 ---
 layout: distill
-title: a distill-style blog post
-description: an example of a distill-style blog post and main elements
+title: Neural Tangent Kernel 
+description: notes on NTK and related material
 giscus_comments: true
-date: 2022-02-26
+date: 2023-02-26
 
 authors:
   - name: Alexandru Meterez
