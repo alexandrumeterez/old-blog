@@ -21,6 +21,12 @@ toc:
     - name: Evaluation functional 
     - name: Functional derivative
     - name: Chain rule 
+  - name: Gaussian Processes (GP)
+  - name: Neural Tangent Kernel
+    subsections:
+    - name: Setting
+    - name: Random functions approximation
+    - name: NTK
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
