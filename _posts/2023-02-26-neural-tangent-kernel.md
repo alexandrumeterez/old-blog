@@ -7,6 +7,7 @@ date: 2022-02-26
 
 authors:
   - name: Alexandru Meterez
+    url: "https://alexandrumeterez.github.io"
     affiliations:
       name: D-INFK, ETH Zurich
 
