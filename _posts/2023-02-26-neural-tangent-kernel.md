@@ -3,7 +3,12 @@ layout: distill
 title: a distill-style blog post
 description: an example of a distill-style blog post and main elements
 giscus_comments: true
-date: 2021-05-22
+date: 2022-02-26
+
+authors:
+  - name: Alexandru Meterez
+    affiliations:
+      name: D-INFK, ETH Zurich
 
 bibliography: 2018-12-22-distill.bib
 
