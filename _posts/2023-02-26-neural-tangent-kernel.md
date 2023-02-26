@@ -43,9 +43,11 @@ Suppose we want to learn a function $f(x)$ using gradient descent. One example w
 In order to learn $w$ we take a loss function, i.e. MSE: 
 
 $$
-L(w) = \sum_{i=1}^n (y_i - w^\top x_i)^2 + \| w \|^2 \\
-\nabla L(w) = \sum_{i=1}^n -2 x_i (y_i - w^\top x_i) + 2w \\
-= \sum_{i=1}^n (-2x_iy_i + 2w^\top \| x_i \|^2) + 2w
+\begin{align}
+L(w) &= \sum_{i=1}^n (y_i - w^\top x_i)^2 + \| w \|^2 \\
+\nabla L(w) &= \sum_{i=1}^n -2 x_i (y_i - w^\top x_i) + 2w \\
+&= \sum_{i=1}^n (-2x_iy_i + 2w^\top \| x_i \|^2) + 2w
+\end{align}
 $$. 
 
 Then we do gradient descent steps on $w$: 
@@ -57,8 +59,10 @@ $$
 Using functional gradient descent, this can be generalized to any function $f$: 
 
 $$
-L(f) = \sum_{i=1}^n (y_i - f(x_i)) + \| f \|^2 \\
-f_{t+1} = f_t - \alpha \nabla L(f)
+\begin{align}
+L(f) &= \sum_{i=1}^n (y_i - f(x_i)) + \| f \|^2 \\
+f_{t+1} &= f_t - \alpha \nabla L(f)
+\end{align}
 $$
 
 This has 2 advantages:
@@ -83,8 +87,10 @@ In other words, $f$ is in RKHS if it can be written as a weighted sum of kernel 
 Let $f, g \in \mathcal{H_k}$. Then:
 
 $$
-f \cdot g = \sum_{i=1}^{n_f} \sum_{j=1}^{n_g} \alpha_i \beta_j k(x_i, x_j) = \alpha K^\top \beta \\
-\| f \|^2 = f \cdot f = \alpha K^\top \beta
+\begin{align}
+f \cdot g &= \sum_{i=1}^{n_f} \sum_{j=1}^{n_g} \alpha_i \beta_j k(x_i, x_j) = \alpha K^\top \beta \\
+\| f \|^2 &= f \cdot f = \alpha K^\top \beta
+\end{align}
 $$
 
 ### Reproducing property
@@ -105,19 +111,23 @@ From the definition of the derivative, the functional derivative is the coeffici
 Example 1 - for the functional $E_x[f] = f(x)$:
 
 $$
-E_x[f + df] = f(x) + df(x) \\
-= E_x[f] + df(x) \\
-= E_x[f] + k(x, \cdot) \cdot df \\
-\implies \nabla E_x[f] = k(x, \cdot)
+\begin{align}
+E_x[f + df] &= f(x) + df(x) \\
+&= E_x[f] + df(x) \\
+&= E_x[f] + k(x, \cdot) \cdot df \\
+&\implies \nabla E_x[f] = k(x, \cdot)
+\end{align}
 $$
 
 Example 2 - for the functional $E[f] = \| f \|^2$
 
 $$
-E[f + df] = (f + df) (f + df) \\
-= \| f \| + 2 f \cdot df + \| df \|^2 \\
-= E[f] + 2 f \cdot df + \| df \|^2 \\ 
-\implies \nabla E[f] = 2f
+\begin{align}
+E[f + df] &= (f + df) (f + df) \\
+&= \| f \| + 2 f \cdot df + \| df \|^2 \\
+&= E[f] + 2 f \cdot df + \| df \|^2 \\ 
+&\implies \nabla E[f] = 2f
+\end{align}
 $$
 
 ### Chain rule
