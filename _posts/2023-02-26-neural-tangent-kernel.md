@@ -2,7 +2,7 @@
 layout: distill
 title: Neural Tangent Kernel 
 description: notes on NTK and related material
-giscus_comments: true
+giscus_comments: false
 date: 2023-02-26
 
 authors:
