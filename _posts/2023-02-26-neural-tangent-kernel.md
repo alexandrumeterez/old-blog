@@ -144,8 +144,11 @@ P_{X, Y} = \begin{bmatrix} X \\ Y \end{bmatrix} \sim \mathcal{N}(0, \begin{bmatr
 $$
 
 where each covariance is setup similarly via the kernel $K$. 
+Then, due to the property that the Normal distribution is closed under conditioning and marginalization, we can compute the posterior 
 
-Then, due to the property that the Normal distribution is closed under conditioning and marginalization, we can compute the posterior $P_{X|Y}$. From the posterior we can sample multiple functions that fit our training data. 
+$$P_{X|Y}$$
+
+From the posterior we can sample multiple functions that fit our training data. 
 
 ## Neural Tangent Kernel
 - We know that at initialization, when taking width $\to \infty$, ANNs behave like GPs 
@@ -192,7 +195,17 @@ $$
 
 Instead of doing gradient descent on the parameters $\theta$ (which we will see stay almost constant during training as the width $\to \infty$), we do functional gradient descent on the function $f_\theta$ itself, using a cost $C : \mathcal{F} \to \R$.
 
-Define the functional derivative of $C$ at a point $$f_0 \in \mathcal{F}$$ as $$\nabla_fC|_{f_0}$$, and the dual $$d|_{f_0} \in \mathcal{F}$$, such that $$\nabla_fC|_{f_0} = \langle d|_{f_0}, \cdot \rangle_{p^{in}}$$.
+Define the functional derivative of $C$ at a point 
+
+$$f_0 \in \mathcal{F}$$ as $$\nabla_fC|_{f_0}$$
+
+and the dual 
+
+$$d|_{f_0} \in \mathcal{F}$$
+
+such that 
+
+$$\nabla_fC|_{f_0} = \langle d|_{f_0}, \cdot \rangle_{p^{in}}$$.
 
 ***
 
