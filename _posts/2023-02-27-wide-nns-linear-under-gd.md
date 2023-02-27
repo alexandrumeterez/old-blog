@@ -94,7 +94,7 @@ Taking the width to infinity in each layer yields a Gaussian Process, with a cer
 
 ### GPs from GD training
 TODO (I don't understand the details in this section too well)
-The main insight here is that $\forall x \in \mathcal{X}_{test}$, 
+The main insight here is that $\forall x \in \mathcal{X}_{test}$, $f_t^{lin}(x)$ converges to a Gaussian distribution when taking the width $\to \infty$. 
 
 ### Infinite width networks are linearized networks
 The authors show that applying GD with learning rate $\eta < \eta_{critical}$ and taking the width of all layers $\to \infty$, then $f_t^{lin}(x) \to \mathcal{N}(\mu(\mathcal{X}_T), \Sigma(\mathcal{X}_T, \mathcal{X}_T))$ (see form of mean and covariance in paper, eq. 15).
