@@ -12,6 +12,13 @@ date: 2023-02-27
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
+    - name: Introduction
+    - name: Theoretical results
+        subsections:
+        - name: Setting
+        - name: Linearized networks have clsoed form training dynamics for params and logits
+        - name: GPs from GD training
+        - name: Infinite width networks are linearized networks
     # if a section has subsections, you can add them as follows:
     # subsections:
     #   - name: Example Child Subsection 1
