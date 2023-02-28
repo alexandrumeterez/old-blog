@@ -12,20 +12,21 @@ date: 2023-02-27
 #   - we may want to automate TOC generation in the future using
 #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
 toc:
-    - name: Introduction
-    - name: Theoretical results
-        subsections:
-        - name: Setting
-        - name: Linearized networks have clsoed form training dynamics for params and logits
-        - name: GPs from GD training
-        - name: Infinite width networks are linearized networks
-    # if a section has subsections, you can add them as follows:
-    # subsections:
-    #   - name: Example Child Subsection 1
-    #   - name: Example Child Subsection 2
+  - name: Introduction
+  - name: Theoretical results
+    subsections:
+      - name: Setting
+      - name: Linearized networks
+      - name: GPs from GD training
+      - name: Infinite width networks are linearized networks
+# if a section has subsections, you can add them as follows:
+# subsections:
+#   - name: Example Child Subsection 1
+#   - name: Example Child Subsection 2
 ---
 
 ## Introduction
+
 In the previous posts, we saw that:
 1) NTK - gradient descent is parameter space is equivalent to functional gradient descent in function space, following the Neural Tangent Kernel
 2) Under the infinite width limit, both single layer and multilayer networks are equivalent to a GP with a kernel defined using a recursive formula
@@ -35,6 +36,8 @@ In this paper, the authors show that for wide neural networks (i.e. infinite wid
 Main insight: when width $\to \infty$, models can be replaced by their first-order Taylor expansion, around $\theta_0$ (the params at initialization).  This approximation holds well under finite width too.
 
 More concretely, a deep neural network with infinite width can be simplified to its linearized model. Under MSE, the dynamics become an ODE that can be solved in close form.
+
+***
 
 ## Theoretical results
 
@@ -75,7 +78,7 @@ $$
 
 where we refer to $\hat{\Theta}_t$ as the empirical tangent kernel.
 
-### Linearized networks have clsoed form training dynamics for params and logits
+### Linearized networks
 
 We replace the outputs of the neural network with their Taylor expansion:
 
@@ -100,8 +103,10 @@ Under the MSE loss, these ODEs have clsoed form solutions (see section 2.2 in th
 Taking the width to infinity in each layer yields a Gaussian Process, with a certain mean and covariance described by a kernel (see form in paper, eq 13).
 
 ### GPs from GD training
+
 TODO (I don't understand the details in this section too well)
 The main insight here is that $\forall x \in \mathcal{X}_{test}$, $f_t^{lin}(x)$ converges to a Gaussian distribution when taking the width $\to \infty$. 
 
 ### Infinite width networks are linearized networks
+
 The authors show that applying GD with learning rate $\eta < \eta_{critical}$ and taking the width of all layers $\to \infty$, then $f_t^{lin}(x) \to \mathcal{N}(\mu(\mathcal{X}_T), \Sigma(\mathcal{X}_T, \mathcal{X}_T))$ (see form of mean and covariance in paper, eq. 15).
