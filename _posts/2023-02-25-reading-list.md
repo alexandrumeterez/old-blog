@@ -35,7 +35,7 @@ There is no particular order to these sections.
 
 ## Training without normalization
 
-- Batch Normalization Biases Residual Blocks Towards the Identity Function in Deep Networks
+- ✅ Batch Normalization Biases Residual Blocks Towards the Identity Function in Deep Networks
 - Fixup Initialization: Residual Learning Without Normalization
 
 ---
