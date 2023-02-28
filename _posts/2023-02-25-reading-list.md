@@ -27,7 +27,7 @@ toc:
 
 ## Side note
 
-Papers marked with ✅ are the ones I've read in depth (and preferably took notes on).
+Papers marked with ✅, are the ones I've read in depth (and preferably took notes on).
 
 There is no particular order to these sections.
 
